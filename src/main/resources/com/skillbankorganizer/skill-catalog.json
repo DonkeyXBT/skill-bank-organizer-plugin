@@ -1,0 +1,976 @@
+{
+  "version": 1,
+  "tabs": [
+    { "id": 1, "name": "Melee", "skills": ["ATTACK", "STRENGTH", "DEFENCE"] },
+    { "id": 2, "name": "Ranged", "skills": ["RANGED"] },
+    { "id": 3, "name": "Magic", "skills": ["MAGIC", "RUNECRAFT"] },
+    { "id": 4, "name": "Prayer", "skills": ["PRAYER"] },
+    { "id": 5, "name": "Potions & HP", "skills": ["HERBLORE", "HITPOINTS"] },
+    { "id": 6, "name": "Crafting", "skills": ["CRAFTING", "FLETCHING", "SMITHING", "CONSTRUCTION"] },
+    { "id": 7, "name": "Food", "skills": ["FISHING", "COOKING"] },
+    { "id": 8, "name": "Gathering", "skills": ["MINING", "WOODCUTTING", "FIREMAKING", "HUNTER", "FARMING"] },
+    { "id": 9, "name": "Raids & utility", "skills": ["RAIDS", "AGILITY", "THIEVING", "SLAYER", "OTHER"] }
+  ],
+  "skills": [
+    {
+      "id": "ATTACK",
+      "name": "Attack",
+      "rsSkill": "ATTACK",
+      "blurb": "Melee weapons. Keep scimitars, whips, fangs and stab weapons here.",
+      "tools": [
+        { "id": 1321, "name": "Bronze scimitar", "level": 1 },
+        { "id": 1323, "name": "Iron scimitar", "level": 1 },
+        { "id": 1325, "name": "Steel scimitar", "level": 5 },
+        { "id": 1327, "name": "Black scimitar", "level": 10 },
+        { "id": 1329, "name": "Mithril scimitar", "level": 20 },
+        { "id": 1331, "name": "Adamant scimitar", "level": 30 },
+        { "id": 1333, "name": "Rune scimitar", "level": 40 },
+        { "id": 4587, "name": "Dragon scimitar", "level": 60 },
+        { "id": 4151, "name": "Abyssal whip", "level": 70 },
+        { "id": 12006, "name": "Abyssal tentacle", "level": 75 },
+        { "id": 26219, "name": "Osmumten's fang", "level": 82 }
+      ],
+      "methods": [
+        {
+          "name": "Crabs (sand / ammonite / rock)",
+          "level": "1–70",
+          "why": "AFK Attack with the best scimitar you can wield.",
+          "items": [
+            { "name": "Scimitar", "hint": "Best scimitar you can equip" },
+            { "id": 385, "name": "Shark", "optional": true, "hint": "Light food" }
+          ]
+        },
+        {
+          "name": "Slayer with whip / fang",
+          "level": "70–99",
+          "why": "Best long-term Attack XP while clearing tasks.",
+          "items": [
+            { "id": 4151, "name": "Abyssal whip", "optional": true },
+            { "id": 26219, "name": "Osmumten's fang", "optional": true },
+            { "id": 4155, "name": "Enchanted gem", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["scimitar", "whip", "tentacle", "rapier", "hasta", "shortsword", "longsword", "godsword", "voidwaker", "emberlight", "osmumten", "saeldor", "ghrazi"] },
+        { "ids": [4151, 12006, 22324, 26219, 13652, 11802, 11804, 11806, 11808, 4587] }
+      ]
+    },
+    {
+      "id": "STRENGTH",
+      "name": "Strength",
+      "rsSkill": "STRENGTH",
+      "blurb": "Crush and Strength-training weapons: warhammers, mauls, bludgeon, granite.",
+      "tools": [
+        { "id": 1337, "name": "Bronze warhammer", "level": 1 },
+        { "id": 1339, "name": "Iron warhammer", "level": 1 },
+        { "id": 1341, "name": "Steel warhammer", "level": 5 },
+        { "id": 1345, "name": "Mithril warhammer", "level": 20 },
+        { "id": 1347, "name": "Rune warhammer", "level": 40 },
+        { "id": 13576, "name": "Dragon warhammer", "level": 60 },
+        { "id": 4153, "name": "Granite maul", "level": 50 },
+        { "id": 13263, "name": "Abyssal bludgeon", "level": 70 },
+        { "id": 21003, "name": "Elder maul", "level": 75 }
+      ],
+      "methods": [
+        {
+          "name": "Aggressive on crabs",
+          "level": "1–70",
+          "why": "Set attack style to Aggressive. Warhammer or scimitar both work.",
+          "items": [{ "name": "Warhammer", "hint": "Or any melee weapon on Aggressive" }]
+        },
+        {
+          "name": "Bludgeon / elder maul",
+          "level": "70–99",
+          "why": "Highest Strength XP per hour on crushable tasks.",
+          "items": [
+            { "id": 13263, "name": "Abyssal bludgeon", "optional": true },
+            { "id": 21003, "name": "Elder maul", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["warhammer", "maul", "bludgeon", "battleaxe", "greataxe", "granite", "halberd", "thrownaxe"] },
+        { "ids": [4153, 13263, 21003, 13576, 1377] }
+      ]
+    },
+    {
+      "id": "DEFENCE",
+      "name": "Defence",
+      "rsSkill": "DEFENCE",
+      "blurb": "Armour, defenders and tank gear. Group by metal, then by raid/boss sets.",
+      "tools": [
+        { "id": 1117, "name": "Bronze platebody", "level": 1 },
+        { "id": 1115, "name": "Iron platebody", "level": 1 },
+        { "id": 1119, "name": "Steel platebody", "level": 5 },
+        { "id": 1121, "name": "Mithril platebody", "level": 20 },
+        { "id": 1123, "name": "Adamant platebody", "level": 30 },
+        { "id": 1127, "name": "Rune platebody", "level": 40 },
+        { "id": 3140, "name": "Dragon chainbody", "level": 60 },
+        { "id": 11832, "name": "Bandos chestplate", "level": 65 },
+        { "id": 12954, "name": "Dragon defender", "level": 60 },
+        { "id": 22322, "name": "Avernic defender", "level": 70 }
+      ],
+      "methods": [
+        {
+          "name": "Defensive on crabs or slayer",
+          "level": "1–99",
+          "why": "Train Defence on the same monsters as Attack, defensive style.",
+          "items": [
+            { "name": "Platebody", "hint": "Best melee body you can wear" },
+            { "name": "Defender", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["platebody", "platelegs", "plateskirt", "full helm", "kiteshield", "defender", "chainbody", "chainskirt", "berserker helm", "helm of neitiznot", "fighter torso", "bandos", "torag", "dharok", "guthan", "verac", "karil's", "ahrim", "justiciar", "inquisitor", "ancestral", "void knight"] },
+        { "ids": [12954, 22322, 11832, 11834, 3140, 10551] }
+      ]
+    },
+    {
+      "id": "RANGED",
+      "name": "Ranged",
+      "rsSkill": "RANGED",
+      "blurb": "Bows, crossbows, darts, chins, ammo and Ranged armour.",
+      "tools": [
+        { "id": 841, "name": "Shortbow", "level": 1 },
+        { "id": 853, "name": "Maple shortbow", "level": 30 },
+        { "id": 861, "name": "Magic shortbow", "level": 50 },
+        { "id": 11235, "name": "Dark bow", "level": 60 },
+        { "id": 20997, "name": "Twisted bow", "level": 75 },
+        { "id": 9185, "name": "Rune crossbow", "level": 61 },
+        { "id": 21902, "name": "Dragon hunter crossbow", "level": 65 },
+        { "id": 26374, "name": "Zaryte crossbow", "level": 80 },
+        { "id": 12926, "name": "Toxic blowpipe", "level": 75 }
+      ],
+      "methods": [
+        {
+          "name": "Darts / knives (early)",
+          "level": "1–50",
+          "why": "Cheap and fast. Iron or steel darts at Ammonite Crabs.",
+          "items": [
+            { "name": "Darts", "hint": "Iron or steel" },
+            { "name": "Knives", "optional": true }
+          ]
+        },
+        {
+          "name": "Broad bolts / cannon",
+          "level": "55–75",
+          "why": "Slayer with a rune crossbow and broad bolts. Cannon for bursting tasks.",
+          "items": [
+            { "id": 9185, "name": "Rune crossbow" },
+            { "id": 11875, "name": "Broad bolts" },
+            { "id": 2, "name": "Cannonball", "optional": true }
+          ]
+        },
+        {
+          "name": "Blowpipe / chinchompas",
+          "level": "75–99",
+          "why": "Fastest Ranged XP. Red chins at black chinchompas or MM2 tunnels.",
+          "items": [
+            { "id": 12926, "name": "Toxic blowpipe", "optional": true },
+            { "id": 10034, "name": "Red chinchompa", "optional": true },
+            { "id": 11959, "name": "Black chinchompa", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["bow", "crossbow", "blowpipe", "chinchompa", "dart", "thrownaxe", "arrow", "bolts", "javelin", "d'hide", "dragonhide", "coif", "ava's", "assembler", "anguish", "range potion", "cannon", "cannonball", "ballista"] },
+        { "nameExclude": ["bowstring", "unstrung", "arrow shaft", "bolt tips", "headless"] }
+      ]
+    },
+    {
+      "id": "PRAYER",
+      "name": "Prayer",
+      "rsSkill": "PRAYER",
+      "blurb": "Bones, ashes, ensouled heads. Keep ectophial and dragon bones together.",
+      "tools": [
+        { "id": 526, "name": "Bones", "level": 1 },
+        { "id": 532, "name": "Big bones", "level": 1 },
+        { "id": 536, "name": "Dragon bones", "level": 1 },
+        { "id": 22124, "name": "Superior dragon bones", "level": 70 },
+        { "id": 25766, "name": "Fiendish ashes", "level": 1 },
+        { "id": 25778, "name": "Infernal ashes", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Gilded altar / Wildy altar",
+          "level": "1–99",
+          "why": "Dragon bones on a gilded altar (house) or Chaos Temple.",
+          "items": [
+            { "id": 536, "name": "Dragon bones" },
+            { "id": 22124, "name": "Superior dragon bones", "optional": true }
+          ]
+        },
+        {
+          "name": "Ensouled heads",
+          "level": "16–99",
+          "why": "Slower but profits. Needs runes and a dark altar or chapel.",
+          "items": [
+            { "name": "Ensouled", "hint": "Any ensouled head" },
+            { "id": 564, "name": "Cosmic rune", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["bones", "ashes", "ensouled", "ectophial", "bonecrusher", "holy symbol", "unholy symbol", "stole", "crozier", "vestment", "dragonbone"] },
+        { "nameExclude": ["bone bolts", "bone dagger", "bone club", "bone spear", "bonesack"] }
+      ]
+    },
+    {
+      "id": "MAGIC",
+      "name": "Magic",
+      "rsSkill": "MAGIC",
+      "blurb": "Runes, staves, pouches, tridents. One page for every spell you actually cast.",
+      "tools": [
+        { "id": 1381, "name": "Staff of air", "level": 1 },
+        { "id": 1387, "name": "Staff of fire", "level": 1 },
+        { "id": 1401, "name": "Mystic fire staff", "level": 40 },
+        { "id": 12791, "name": "Rune pouch", "level": 1 },
+        { "id": 27281, "name": "Divine rune pouch", "level": 75 },
+        { "id": 11907, "name": "Trident of the seas", "level": 75 },
+        { "id": 22323, "name": "Sanguinesti staff", "level": 82 }
+      ],
+      "methods": [
+        {
+          "name": "Splashing / strike spells",
+          "level": "1–13",
+          "why": "Mind runes plus an elemental staff. Cheap levels.",
+          "items": [
+            { "id": 1381, "name": "Staff of air" },
+            { "id": 558, "name": "Mind rune" }
+          ]
+        },
+        {
+          "name": "High alchemy",
+          "level": "55–99",
+          "why": "Steady Magic XP and gold. Fire staff + natures + alchables.",
+          "items": [
+            { "id": 1387, "name": "Staff of fire" },
+            { "id": 561, "name": "Nature rune" },
+            { "name": "Alchable", "optional": true, "hint": "Yew longs, gold bars, d'hide" }
+          ]
+        },
+        {
+          "name": "Burst / barrage",
+          "level": "70–99",
+          "why": "Fastest Magic XP on slayer tasks and MM2 maniacal monkeys.",
+          "items": [
+            { "id": 560, "name": "Death rune" },
+            { "id": 565, "name": "Blood rune" },
+            { "id": 562, "name": "Chaos rune" },
+            { "id": 12791, "name": "Rune pouch", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": [" rune", "staff", "wand", "trident", "sanguinesti", "kodai", "tome of", "rune pouch", "imbued god cape", "occult", "tormented", "ancestral", "virtus", "ancient sceptre", "warped sceptre"] },
+        { "nameExclude": ["runite", "rune plate", "rune chain", "rune full", "rune kiteshield", "rune dagger", "rune scimitar", "rune 2h", "rune axe", "rune pickaxe", "rune arrow", "rune dart", "rune knife", "rune thrownaxe", "rune javelin", "rune boots", "rune gloves", "rune defender", "granite"] }
+      ]
+    },
+    {
+      "id": "RUNECRAFT",
+      "name": "Runecraft",
+      "rsSkill": "RUNECRAFT",
+      "blurb": "Essence, pouches, talismans, tiaras, blood/soul runes.",
+      "tools": [
+        { "id": 1436, "name": "Rune essence", "level": 1 },
+        { "id": 7936, "name": "Pure essence", "level": 1 },
+        { "id": 5509, "name": "Small pouch", "level": 1 },
+        { "id": 5510, "name": "Medium pouch", "level": 25 },
+        { "id": 5512, "name": "Large pouch", "level": 50 },
+        { "id": 5514, "name": "Giant pouch", "level": 75 },
+        { "id": 26784, "name": "Colossal pouch", "level": 85 }
+      ],
+      "methods": [
+        {
+          "name": "Lavas / ZMI",
+          "level": "1–77",
+          "why": "Daeyalt or pure essence through Ourania or the lava altar.",
+          "items": [
+            { "id": 7936, "name": "Pure essence" },
+            { "id": 5514, "name": "Giant pouch", "optional": true }
+          ]
+        },
+        {
+          "name": "Bloods and souls",
+          "level": "77–99",
+          "why": "True Blood Altar / Arceuus. Bring colossal pouch and blood essence.",
+          "items": [
+            { "id": 7936, "name": "Pure essence" },
+            { "id": 26784, "name": "Colossal pouch", "optional": true },
+            { "id": 26390, "name": "Blood essence", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["essence", "pouch", "talisman", "tiara", "blood essence", "abyssal needle", "runecraft"] },
+        { "nameExclude": ["rune pouch", "looting pouch", "seed pouch", "coal bag", "gem bag"] },
+        { "ids": [1436, 7936, 5509, 5510, 5512, 5514, 26784, 26390] }
+      ]
+    },
+    {
+      "id": "CONSTRUCTION",
+      "name": "Construction",
+      "rsSkill": "CONSTRUCTION",
+      "blurb": "Planks, nails, cloth, limestone. Mahogany homes and mahogany tables.",
+      "tools": [
+        { "id": 8794, "name": "Saw", "level": 1 },
+        { "id": 2347, "name": "Hammer", "level": 1 },
+        { "id": 960, "name": "Plank", "level": 1 },
+        { "id": 8778, "name": "Oak plank", "level": 15 },
+        { "id": 8780, "name": "Teak plank", "level": 35 },
+        { "id": 8782, "name": "Mahogany plank", "level": 50 }
+      ],
+      "methods": [
+        {
+          "name": "Oak larders",
+          "level": "33–52",
+          "why": "Classic method. Servant + oak planks.",
+          "items": [{ "id": 8778, "name": "Oak plank" }]
+        },
+        {
+          "name": "Mahogany homes / tables",
+          "level": "50–99",
+          "why": "Mahogany plank plus a butler. Homes if you want points.",
+          "items": [
+            { "id": 8782, "name": "Mahogany plank" },
+            { "id": 8794, "name": "Saw" },
+            { "id": 2347, "name": "Hammer" }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["plank", "nails", "bolt of cloth", "limestone brick", "marble block", "gold leaf", "magic stone", "saw", "mahogany homes"] },
+        { "nameExclude": ["sawmill"] },
+        { "ids": [8794, 2347, 960, 8778, 8780, 8782] }
+      ]
+    },
+    {
+      "id": "HITPOINTS",
+      "name": "Hitpoints",
+      "rsSkill": "HITPOINTS",
+      "blurb": "Cooked food. This is the eat-tab — keep raw fish on Cooking instead.",
+      "tools": [
+        { "id": 379, "name": "Lobster", "level": 1 },
+        { "id": 373, "name": "Swordfish", "level": 1 },
+        { "id": 7946, "name": "Monkfish", "level": 1 },
+        { "id": 385, "name": "Shark", "level": 1 },
+        { "id": 11936, "name": "Dark crab", "level": 1 },
+        { "id": 13441, "name": "Anglerfish", "level": 1 },
+        { "id": 3144, "name": "Cooked karambwan", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Train combat — food is the HP method",
+          "level": "1–99",
+          "why": "Hitpoints levels come from combat. Bank cooked food here, not raw.",
+          "items": [
+            { "id": 385, "name": "Shark", "optional": true },
+            { "id": 13441, "name": "Anglerfish", "optional": true },
+            { "id": 3144, "name": "Cooked karambwan", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["shark", "monkfish", "swordfish", "lobster", "anglerfish", "karambwan", "manta ray", "dark crab", "tuna potato", "saradomin brew", "guthix rest", "summer pie", "wild pie", "cake", "pizza", "stew", "potato with", "blighted"] },
+        { "nameExclude": ["raw ", "burnt ", "karambwanji", "karambwan vessel"] }
+      ]
+    },
+    {
+      "id": "AGILITY",
+      "name": "Agility",
+      "rsSkill": "AGILITY",
+      "blurb": "Marks of grace, graceful, stamina potions, rumours of shortcuts.",
+      "tools": [
+        { "id": 11849, "name": "Mark of grace", "level": 1 },
+        { "id": 11850, "name": "Graceful hood", "level": 1 },
+        { "id": 12625, "name": "Stamina potion(4)", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Rooftop courses",
+          "level": "1–99",
+          "why": "Follow the highest rooftop you can click. Bank marks and graceful.",
+          "items": [
+            { "id": 11850, "name": "Graceful hood", "optional": true },
+            { "id": 12625, "name": "Stamina potion(4)", "optional": true }
+          ]
+        },
+        {
+          "name": "Hallowed Sepulchre",
+          "level": "52–99",
+          "why": "Best XP once you can clear floors comfortably.",
+          "items": [
+            { "id": 24738, "name": "Hallowed grapple", "optional": true },
+            { "id": 24740, "name": "Hallowed focus", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["graceful", "mark of grace", "stamina potion", "agility potion", "hallowed", "summer pie"] },
+        { "ids": [11849, 11850, 11852, 11854, 11856, 11858, 11860, 12625] }
+      ]
+    },
+    {
+      "id": "HERBLORE",
+      "name": "Herblore",
+      "rsSkill": "HERBLORE",
+      "blurb": "Herbs, secondaries, vials. Clean herbs stacked next to unfinished potions.",
+      "tools": [
+        { "id": 233, "name": "Pestle and mortar", "level": 1 },
+        { "id": 227, "name": "Vial of water", "level": 1 },
+        { "id": 249, "name": "Guam leaf", "level": 3 },
+        { "id": 257, "name": "Ranarr weed", "level": 25 },
+        { "id": 3000, "name": "Snapdragon", "level": 63 },
+        { "id": 269, "name": "Torstol", "level": 78 }
+      ],
+      "methods": [
+        {
+          "name": "Unfinished potions → finished",
+          "level": "3–99",
+          "why": "Bank grimy, clean, then vial. Keep secondaries beside the matching herb.",
+          "items": [
+            { "id": 227, "name": "Vial of water" },
+            { "id": 233, "name": "Pestle and mortar" }
+          ]
+        },
+        {
+          "name": "Prayer potions / super combats",
+          "level": "38–90",
+          "why": "Ranarr + snape grass; torstol + super attack/str/def.",
+          "items": [
+            { "id": 257, "name": "Ranarr weed", "optional": true },
+            { "id": 231, "name": "Snape grass", "optional": true },
+            { "id": 269, "name": "Torstol", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["grimy", "leaf", "weed", "unfinished", "potion", "vial", "pestle", "eye of newt", "snape grass", "limpwurt", "unicorn horn", "red spiders", "white berries", "crushed nest", "amylase", "crystal dust", "goat horn", "dragon scale", "wine of zamorak", "coconut milk", "caviar", "super combat", "saradomin brew", "sanfew", "stamina", "prayer regeneration", "forgotten brew"] },
+        { "nameExclude": ["seed", "sapling"] }
+      ]
+    },
+    {
+      "id": "THIEVING",
+      "name": "Thieving",
+      "rsSkill": "THIEVING",
+      "blurb": "Coin pouches, rogue kit, blackjacks, Dodgy necklaces.",
+      "tools": [
+        { "id": 5554, "name": "Rogue mask", "level": 1 },
+        { "id": 21143, "name": "Dodgy necklace", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Ardougne knights / Elves",
+          "level": "55–99",
+          "why": "Dodgy necklace + rogue outfit. Shadow veil if Arceuus.",
+          "items": [
+            { "id": 5554, "name": "Rogue mask", "optional": true },
+            { "id": 21143, "name": "Dodgy necklace", "optional": true }
+          ]
+        },
+        {
+          "name": "Pyramid Plunder",
+          "level": "71–99",
+          "why": "Pharaoh's sceptre runs. Bank sceptre and sceptre charges here.",
+          "items": [{ "id": 9044, "name": "Pharaoh's sceptre", "optional": true }]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["rogue ", "dodgy necklace", "coin pouch", "blackjack", "thieving", "pharaoh's sceptre", "silky ciara", "gloves of silence"] },
+        { "ids": [5553, 5554, 5555, 5556, 5557, 21143, 9044] }
+      ]
+    },
+    {
+      "id": "CRAFTING",
+      "name": "Crafting",
+      "rsSkill": "CRAFTING",
+      "blurb": "Hides, gems, glass, battlestaves, jewellery.",
+      "tools": [
+        { "id": 1733, "name": "Needle", "level": 1 },
+        { "id": 1734, "name": "Thread", "level": 1 },
+        { "id": 1755, "name": "Chisel", "level": 1 },
+        { "id": 1785, "name": "Glassblowing pipe", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Green → black d'hide bodies",
+          "level": "63–84",
+          "why": "Tan hides, then needle + thread. High XP and alchable.",
+          "items": [
+            { "id": 1745, "name": "Green dragon leather", "optional": true },
+            { "id": 2509, "name": "Black dragon leather", "optional": true },
+            { "id": 1733, "name": "Needle" },
+            { "id": 1734, "name": "Thread" }
+          ]
+        },
+        {
+          "name": "Glass / battlestaves",
+          "level": "46–99",
+          "why": "Molten glass at a bank, or water orbs onto battlestaves.",
+          "items": [
+            { "id": 1775, "name": "Molten glass", "optional": true },
+            { "id": 1397, "name": "Battlestaff", "optional": true },
+            { "id": 571, "name": "Water orb", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["needle", "thread", "chisel", "leather", "dragonhide", "d'hide", "uncut ", "molten glass", "glassblowing", "battlestaff", "orb", "gold bar", "silver bar", "bracelet", "amulet", "necklace", "ring of", "pottery", "soft clay"] },
+        { "nameExclude": ["seed", "amulet of fury", "amulet of torture", "necklace of anguish", "ring of suffering", "berserker ring", "archer ring", "seers ring", "warrior ring"] }
+      ]
+    },
+    {
+      "id": "FLETCHING",
+      "name": "Fletching",
+      "rsSkill": "FLETCHING",
+      "blurb": "Logs → unstrung bows, shafts, tips, bowstrings.",
+      "tools": [
+        { "id": 946, "name": "Knife", "level": 1 },
+        { "id": 1777, "name": "Bow string", "level": 1 },
+        { "id": 52, "name": "Arrow shaft", "level": 1 },
+        { "id": 314, "name": "Feather", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Maple / yew / magic longs",
+          "level": "55–99",
+          "why": "Fletch unstrung, string later. Alch or sell.",
+          "items": [
+            { "id": 946, "name": "Knife" },
+            { "id": 1517, "name": "Maple logs", "optional": true },
+            { "id": 1515, "name": "Yew logs", "optional": true },
+            { "id": 1513, "name": "Magic logs", "optional": true },
+            { "id": 1777, "name": "Bow string" }
+          ]
+        },
+        {
+          "name": "Broad arrows / darts",
+          "level": "52–99",
+          "why": "AFK slayer unlock. Headless arrows + broad tips.",
+          "items": [
+            { "id": 53, "name": "Headless arrow", "optional": true },
+            { "id": 11874, "name": "Broad arrowheads", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["bow string", "unstrung", "arrow shaft", "headless arrow", "arrowtips", "bolt tips", "javelin heads", "dart tip", "stock", "shieldbow", "shortbow", "longbow"] },
+        { "ids": [946, 1777, 52, 53, 314, 11874] }
+      ]
+    },
+    {
+      "id": "SLAYER",
+      "name": "Slayer",
+      "rsSkill": "SLAYER",
+      "blurb": "Slayer gem, horns, broad ammo, slayer helm, task tools.",
+      "tools": [
+        { "id": 4155, "name": "Enchanted gem", "level": 1 },
+        { "id": 11864, "name": "Slayer helmet", "level": 1 },
+        { "id": 11866, "name": "Slayer ring", "level": 1 },
+        { "id": 4166, "name": "Facemask", "level": 1 },
+        { "id": 4164, "name": "Earmuffs", "level": 1 },
+        { "id": 4551, "name": "Spiny helmet", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Konar / Duradel / Konar+brim",
+          "level": "1–99",
+          "why": "Keep the gem, helm and skip tools together so a task start is one tab.",
+          "items": [
+            { "id": 4155, "name": "Enchanted gem" },
+            { "id": 11864, "name": "Slayer helmet", "optional": true },
+            { "id": 11875, "name": "Broad bolts", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["slayer", "enchanted gem", "facemask", "earmuffs", "nose peg", "spiny helmet", "rock hammer", "insulated boots", "leaf-bladed", "broad ", "witchwood", "fungicide", "ice cooler", "bag of salt", "super combat", "cannon"] },
+        { "ids": [4155, 11864, 11865, 11866, 4164, 4166, 4168, 4551, 4162] }
+      ]
+    },
+    {
+      "id": "HUNTER",
+      "name": "Hunter",
+      "rsSkill": "HUNTER",
+      "blurb": "Traps, box traps, impling jars, chins, hunter potions.",
+      "tools": [
+        { "id": 10006, "name": "Bird snare", "level": 1 },
+        { "id": 10008, "name": "Box trap", "level": 27 },
+        { "id": 10025, "name": "Magic box", "level": 71 },
+        { "id": 11260, "name": "Impling jar", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Bird snares → chinchompas",
+          "level": "1–80",
+          "why": "Tropical wagtail, then grey/red/black chins.",
+          "items": [
+            { "id": 10006, "name": "Bird snare" },
+            { "id": 10008, "name": "Box trap" }
+          ]
+        },
+        {
+          "name": "Maniacal monkeys / herbiboar",
+          "level": "60–99",
+          "why": "Noose wand + logs at Kruk's Dungeon, or herbiboar on Fossil Island.",
+          "items": [
+            { "id": 10010, "name": "Noose wand", "optional": true },
+            { "id": 11259, "name": "Magic impling jar", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["bird snare", "box trap", "magic box", "noose wand", "impling", "chinchompa", "hunter ", "larupia", "graahk", "kyatt", "swamp lizard", "orange salamander", "red salamander", "black salamander", "herbi"] },
+        { "ids": [10006, 10008, 10010, 10025, 11260] }
+      ]
+    },
+    {
+      "id": "MINING",
+      "name": "Mining",
+      "rsSkill": "MINING",
+      "blurb": "Pickaxes and ores. Keep coal next to bars on the Smithing page too.",
+      "tools": [
+        { "id": 1265, "name": "Bronze pickaxe", "level": 1 },
+        { "id": 1267, "name": "Iron pickaxe", "level": 1 },
+        { "id": 1269, "name": "Steel pickaxe", "level": 6 },
+        { "id": 1273, "name": "Mithril pickaxe", "level": 21 },
+        { "id": 1271, "name": "Adamant pickaxe", "level": 31 },
+        { "id": 1275, "name": "Rune pickaxe", "level": 41 },
+        { "id": 11920, "name": "Dragon pickaxe", "level": 61 },
+        { "id": 13243, "name": "Infernal pickaxe", "level": 61 },
+        { "id": 23680, "name": "Crystal pickaxe", "level": 71 }
+      ],
+      "methods": [
+        {
+          "name": "Motherlode Mine / 3-tick granite",
+          "level": "30–99",
+          "why": "Dragon pickaxe is the real unlock. Crystal if you have it.",
+          "items": [
+            { "id": 11920, "name": "Dragon pickaxe" },
+            { "id": 12012, "name": "Prospector helmet", "optional": true }
+          ]
+        },
+        {
+          "name": "Amethyst / stars",
+          "level": "70–99",
+          "why": "AFK endgame. Keep amethyst and stardust here.",
+          "items": [
+            { "id": 21347, "name": "Amethyst", "optional": true },
+            { "id": 25527, "name": "Stardust", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["pickaxe", " ore", "coal", "unidentified mineral", "pay-dirt", "amethyst", "stardust", "prospector", "celestial"] },
+        { "nameExclude": ["coal bag"] }
+      ]
+    },
+    {
+      "id": "SMITHING",
+      "name": "Smithing",
+      "rsSkill": "SMITHING",
+      "blurb": "Bars, then platebodies. Blast furnace kit lives here.",
+      "tools": [
+        { "id": 2347, "name": "Hammer", "level": 1 },
+        { "id": 2349, "name": "Bronze bar", "level": 1 },
+        { "id": 2351, "name": "Iron bar", "level": 15 },
+        { "id": 2353, "name": "Steel bar", "level": 30 },
+        { "id": 2359, "name": "Mithril bar", "level": 50 },
+        { "id": 2361, "name": "Adamantite bar", "level": 70 },
+        { "id": 2363, "name": "Runite bar", "level": 85 }
+      ],
+      "methods": [
+        {
+          "name": "Blast Furnace gold / addy",
+          "level": "40–99",
+          "why": "Goldsmith gauntlets for gold; coal bag + ice gloves for bars.",
+          "items": [
+            { "id": 776, "name": "Goldsmith gauntlets", "optional": true },
+            { "id": 12019, "name": "Coal bag", "optional": true },
+            { "id": 1580, "name": "Ice gloves", "optional": true }
+          ]
+        },
+        {
+          "name": "Giants' Foundry",
+          "level": "15–99",
+          "why": "Deposit mixed bars, follow the temperature minigame.",
+          "items": [{ "name": "Bar", "hint": "Any metal bars" }]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": [" bar", "coal bag", "goldsmith", "ice gloves", "cannonball", "platebody", "2h sword"] },
+        { "nameExclude": ["chocolate bar", "candy", "unfinished"] },
+        { "ids": [2347, 2349, 2351, 2353, 2355, 2357, 2359, 2361, 2363, 12019, 776] }
+      ]
+    },
+    {
+      "id": "FISHING",
+      "name": "Fishing",
+      "rsSkill": "FISHING",
+      "blurb": "Rods, nets, harpoons, bait, raw fish. Cooked fish go to Hitpoints / Cooking.",
+      "tools": [
+        { "id": 303, "name": "Small fishing net", "level": 1 },
+        { "id": 307, "name": "Fishing rod", "level": 5 },
+        { "id": 309, "name": "Fly fishing rod", "level": 20 },
+        { "id": 311, "name": "Harpoon", "level": 35 },
+        { "id": 301, "name": "Lobster pot", "level": 40 },
+        { "id": 21028, "name": "Dragon harpoon", "level": 61 },
+        { "id": 21031, "name": "Infernal harpoon", "level": 61 },
+        { "id": 23762, "name": "Crystal harpoon", "level": 71 }
+      ],
+      "methods": [
+        {
+          "name": "Fly fishing → lobsters → sharks",
+          "level": "1–76",
+          "why": "Trout/salmon, then lobsters at Catherby, then sharks or minnows.",
+          "items": [
+            { "id": 309, "name": "Fly fishing rod" },
+            { "id": 314, "name": "Feather" },
+            { "id": 301, "name": "Lobster pot", "optional": true }
+          ]
+        },
+        {
+          "name": "Barbarian / anglers / infernal eels",
+          "level": "58–99",
+          "why": "Dragon harpoon spec. Angler's outfit from Fishing Trawler.",
+          "items": [
+            { "id": 21028, "name": "Dragon harpoon", "optional": true },
+            { "id": 13258, "name": "Angler hat", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["fishing", "harpoon", "lobster pot", "fishing rod", "small fishing net", "big fishing net", "fishing bait", "sandworms", "raw shrimp", "raw anchovy", "raw sardine", "raw herring", "raw trout", "raw salmon", "raw tuna", "raw lobster", "raw swordfish", "raw monkfish", "raw shark", "raw angler", "raw karambwan", "raw manta", "raw dark crab", "leaping", "angler hat", "angler top", "angler waders", "angler boots", "minnow"] },
+        { "ids": [303, 305, 307, 309, 311, 301, 313, 21028, 21031, 23762] }
+      ]
+    },
+    {
+      "id": "COOKING",
+      "name": "Cooking",
+      "rsSkill": "COOKING",
+      "blurb": "Raw food and gauntlets. Drop cooked food onto the Hitpoints page when done.",
+      "tools": [
+        { "id": 775, "name": "Cooking gauntlets", "level": 1 },
+        { "id": 335, "name": "Raw trout", "level": 15 },
+        { "id": 377, "name": "Raw lobster", "level": 40 },
+        { "id": 383, "name": "Raw shark", "level": 80 },
+        { "id": 13439, "name": "Raw anglerfish", "level": 84 }
+      ],
+      "methods": [
+        {
+          "name": "Hosidius range / Copious cooking",
+          "level": "1–99",
+          "why": "10% less burn with Hosidius elite + cooking gauntlets. Bank raw here.",
+          "items": [
+            { "id": 775, "name": "Cooking gauntlets" },
+            { "name": "Raw ", "hint": "Any raw fish or meat" }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["raw ", "cooking gauntlets", "cook-o-matic"] },
+        { "nameExclude": ["raw chaos", "raw potato"] }
+      ]
+    },
+    {
+      "id": "FIREMAKING",
+      "name": "Firemaking",
+      "rsSkill": "FIREMAKING",
+      "blurb": "Logs, tinderbox, pyromancer, Wintertodt crates.",
+      "tools": [
+        { "id": 590, "name": "Tinderbox", "level": 1 },
+        { "id": 1511, "name": "Logs", "level": 1 },
+        { "id": 1521, "name": "Oak logs", "level": 15 },
+        { "id": 1519, "name": "Willow logs", "level": 30 },
+        { "id": 1517, "name": "Maple logs", "level": 45 },
+        { "id": 1515, "name": "Yew logs", "level": 60 },
+        { "id": 1513, "name": "Magic logs", "level": 75 },
+        { "id": 19669, "name": "Redwood logs", "level": 90 }
+      ],
+      "methods": [
+        {
+          "name": "Wintertodt",
+          "level": "50–99",
+          "why": "Best XP and rewards. Pyromancer outfit + warm clothing.",
+          "items": [
+            { "id": 590, "name": "Tinderbox" },
+            { "id": 20704, "name": "Burning brazier", "optional": true },
+            { "id": 20704, "name": "Burning brazier", "optional": true }
+          ]
+        },
+        {
+          "name": "Bonfires / redwood",
+          "level": "90–99",
+          "why": "Add logs to an existing fire in the Woodcutting Guild.",
+          "items": [{ "id": 19669, "name": "Redwood logs", "optional": true }]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["tinderbox", " logs", "pyromancer", "bruma", "warm gloves", "burnt page", "pyre"] },
+        { "ids": [590, 1511, 1521, 1519, 1517, 1515, 1513, 19669, 6333, 6332] }
+      ]
+    },
+    {
+      "id": "WOODCUTTING",
+      "name": "Woodcutting",
+      "rsSkill": "WOODCUTTING",
+      "blurb": "Axes, logs, forestry kit, lumberjack, nests. One section, high-tier logs first.",
+      "tools": [
+        { "id": 1351, "name": "Bronze axe", "level": 1 },
+        { "id": 1349, "name": "Iron axe", "level": 1 },
+        { "id": 1353, "name": "Steel axe", "level": 6 },
+        { "id": 1361, "name": "Black axe", "level": 11 },
+        { "id": 1355, "name": "Mithril axe", "level": 21 },
+        { "id": 1357, "name": "Adamant axe", "level": 31 },
+        { "id": 1359, "name": "Rune axe", "level": 41 },
+        { "id": 6739, "name": "Dragon axe", "level": 61 },
+        { "id": 13241, "name": "Infernal axe", "level": 61 },
+        { "id": 23673, "name": "Crystal axe", "level": 71 }
+      ],
+      "methods": [
+        {
+          "name": "Forestry",
+          "level": "1–99",
+          "why": "Best overall. Events give XP and the forestry shop kit.",
+          "items": [
+            { "id": 6739, "name": "Dragon axe" },
+            { "id": 28136, "name": "Forestry kit", "optional": true },
+            { "id": 28140, "name": "Log basket", "optional": true }
+          ]
+        },
+        {
+          "name": "Teaks / redwoods",
+          "level": "35–99",
+          "why": "Teaks at 35, yews at 60, redwoods at 90 in the WC guild.",
+          "items": [
+            { "id": 6333, "name": "Teak logs", "optional": true },
+            { "id": 19669, "name": "Redwood logs", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": [" logs", "forestry", "lumberjack", "bird nest", "clue nest", "log basket"] },
+        { "nameContains": [" axe"], "nameExclude": ["pickaxe", "battleaxe", "greataxe", "thrownaxe"] },
+        { "ids": [1351, 1349, 1353, 1361, 1355, 1357, 1359, 6739, 13241, 23673, 28136, 28140, 10941, 10939, 10940, 10933] }
+      ]
+    },
+    {
+      "id": "FARMING",
+      "name": "Farming",
+      "rsSkill": "FARMING",
+      "blurb": "Seeds, saplings, compost, bottomless bucket, tools.",
+      "tools": [
+        { "id": 5341, "name": "Rake", "level": 1 },
+        { "id": 5325, "name": "Gardening trowel", "level": 1 },
+        { "id": 5329, "name": "Secateurs", "level": 1 },
+        { "id": 5343, "name": "Seed dibber", "level": 1 },
+        { "id": 5340, "name": "Watering can", "level": 1 },
+        { "id": 7409, "name": "Magic secateurs", "level": 1 },
+        { "id": 22997, "name": "Bottomless compost bucket", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Tree + herb runs",
+          "level": "1–99",
+          "why": "The actual 99 method. Magic secateurs, ultracompost, teleports.",
+          "items": [
+            { "id": 7409, "name": "Magic secateurs" },
+            { "id": 21483, "name": "Ultracompost", "optional": true },
+            { "id": 22997, "name": "Bottomless compost bucket", "optional": true }
+          ]
+        },
+        {
+          "name": "Tithe Farm",
+          "level": "34–99",
+          "why": "Unlocks the fruit barrel, auto-weed and watering can upgrades.",
+          "items": [{ "id": 13421, "name": "Grape seed", "optional": true }]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["seed", "sapling", "compost", "rake", "secateurs", "seed dibber", "gardening trowel", "watering can", "bottomless", "seed box", "plant pot", "tree pot", "white lily", "hedge", "bush"] },
+        { "nameExclude": ["seed pod", "seeded"] }
+      ]
+    },
+    {
+      "id": "RAIDS",
+      "name": "Raids",
+      "rsSkill": null,
+      "blurb": "CoX, ToB and ToA kits. Weapons and armour first, then supplies. Keep each raid in its own block with a placeholder gap.",
+      "tools": [
+        { "id": 20997, "name": "Twisted bow", "level": 1 },
+        { "id": 21006, "name": "Kodai wand", "level": 1 },
+        { "id": 21003, "name": "Elder maul", "level": 1 },
+        { "id": 22486, "name": "Scythe of vitur", "level": 1 },
+        { "id": 22323, "name": "Sanguinesti staff", "level": 1 },
+        { "id": 22322, "name": "Avernic defender", "level": 1 },
+        { "id": 26219, "name": "Osmumten's fang", "level": 1 },
+        { "id": 27275, "name": "Tumeken's shadow", "level": 1 },
+        { "id": 25975, "name": "Lightbearer", "level": 1 }
+      ],
+      "methods": [
+        {
+          "name": "Chambers of Xeric",
+          "level": "CoX",
+          "why": "Tbow / shadow / ancestral / kodai, then overloads, prayer enhance, brew/restore.",
+          "items": [
+            { "id": 20997, "name": "Twisted bow", "optional": true },
+            { "id": 21021, "name": "Ancestral robe top", "optional": true },
+            { "id": 20996, "name": "Overload (4)", "optional": true },
+            { "id": 6685, "name": "Saradomin brew(4)" },
+            { "id": 3024, "name": "Super restore(4)" }
+          ]
+        },
+        {
+          "name": "Theatre of Blood",
+          "level": "ToB",
+          "why": "Scythe, sang, avernic, justiciar. Brews, restores, thralls.",
+          "items": [
+            { "id": 22486, "name": "Scythe of vitur", "optional": true },
+            { "id": 22323, "name": "Sanguinesti staff", "optional": true },
+            { "id": 22322, "name": "Avernic defender", "optional": true },
+            { "id": 22327, "name": "Justiciar chestguard", "optional": true }
+          ]
+        },
+        {
+          "name": "Tombs of Amascut",
+          "level": "ToA",
+          "why": "Fang, shadow, lightbearer, masori. Salts, liquid adrenaline, restoratives.",
+          "items": [
+            { "id": 26219, "name": "Osmumten's fang", "optional": true },
+            { "id": 27275, "name": "Tumeken's shadow", "optional": true },
+            { "id": 25975, "name": "Lightbearer", "optional": true },
+            { "id": 27343, "name": "Smelling salts", "optional": true },
+            { "id": 27347, "name": "Liquid adrenaline", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": [
+        { "nameContains": ["twisted bow", "twisted ancestral", "kodai", "ancestral robe", "ancestral hat", "olmlet", "xeric", "overload (", "prayer enhance", "dinh's", "twisted buckler", "elder maul"] },
+        { "nameContains": ["scythe of vitur", "sanguinesti", "ghrazi", "avernic", "justiciar", "dawnbringer"] },
+        { "nameContains": ["tumeken", "osmumten", "lightbearer", "elidinis", "masori", "keris partisan", "smelling salts", "liquid adrenaline", "silk dressing", "blessed crystal", "menaphite remedy"] },
+        { "ids": [20997, 21006, 21003, 21018, 21021, 21024, 22486, 22481, 22323, 22322, 22324, 22326, 22327, 22328, 26219, 27275, 27277, 25975, 25985, 27226, 27229, 27232, 20996, 27343, 27347] }
+      ]
+    },
+    {
+      "id": "OTHER",
+      "name": "Uncategorized",
+      "rsSkill": null,
+      "blurb": "Quest items, clues, coins and leftovers. Raids have their own page. Park the rest in tab 9.",
+      "tools": [],
+      "methods": [
+        {
+          "name": "Manual sort",
+          "level": "—",
+          "why": "Clues, quest kits, coins and odds-and-ends. Keep placeholders so this tab stays stable.",
+          "items": [
+            { "id": 995, "name": "Coins", "optional": true },
+            { "name": "Clue scroll", "optional": true }
+          ]
+        }
+      ],
+      "matchAny": []
+    }
+  ]
+}
