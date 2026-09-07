@@ -11,16 +11,15 @@ Each page shows:
 - **Right-click → Send to [skill]** on a bank item. That opens the matching page and writes a Bank Tag (`#woodcutting`, `#raids`, …). Jagex does not allow plugins to drag items; you still move the stack yourself.
 - A **Raids** page for CoX / ToB / ToA kits.
 
-## Install (sideload while developing)
+## Install
 
-1. Install [IntelliJ IDEA](https://www.jetbrains.com/idea/) and JDK 11+.
-2. **File → Open** this folder (`skill-bank-organizer`) as a Gradle project.
-3. Wait for Gradle sync, then run the `run` Gradle task (or `SkillBankOrganizerPluginTest`).
-4. Log in with a [Jagex account](https://github.com/runelite/runelite/wiki/Using-Jagex-Accounts) if you use one.
-5. Enable **Skill Bank Organizer** in the sidebar plugin list.
-6. Open your bank. Pages fill from the live container. Right-click any stack → **Send to Woodcutting** (or Raids, Magic, …). That tags it and opens the page. Drag it onto the tab yourself.
+1. In RuneLite, click the wrench to open **Configuration**.
+2. Open **Plugin Hub** at the bottom of the plugin list.
+3. Search for **Skill Bank Organizer** and click **Install**.
+4. Enable it, then open your bank. Pages fill from the live container.
+5. Right-click any stack -> **Send to Woodcutting** (or Raids, Magic, ...). That tags it and opens the page. Drag it onto the tab yourself.
 
-Suggested bank tabs are listed on the home page (Melee, Ranged, Magic, Prayer, …). Put a placeholder gap between skills so the layout stays put.
+Suggested bank tabs are listed on the [docs site](https://donkeyxbt.github.io/skill-bank-organizer/) (Melee, Ranged, Magic, Prayer, ...). Put a placeholder gap between skills so the layout stays put.
 
 ## Plugin Hub
 
