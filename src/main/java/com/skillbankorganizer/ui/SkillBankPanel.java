@@ -9,6 +9,7 @@ import com.skillbankorganizer.data.Organizer.SkillPage;
 import com.skillbankorganizer.data.Organizer.ToolStatus;
 import com.skillbankorganizer.data.SkillCatalog;
 import com.skillbankorganizer.data.SkillCatalog.TabDef;
+import com.skillbankorganizer.data.SkillSprites;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -17,13 +18,11 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -31,9 +30,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import net.runelite.api.Skill;
 import net.runelite.client.game.ItemManager;
-import net.runelite.client.game.SkillIconManager;
+import net.runelite.client.game.SpriteManager;
 import net.runelite.client.ui.ColorScheme;
 import net.runelite.client.ui.FontManager;
 import net.runelite.client.ui.PluginPanel;
@@ -48,7 +46,7 @@ public class SkillBankPanel extends PluginPanel
 	private final SkillBankOrganizerPlugin plugin;
 	private final SkillCatalog catalog;
 	private final ItemManager itemManager;
-	private final SkillIconManager skillIconManager;
+	private final SpriteManager spriteManager;
 
 	private final JPanel cards = new JPanel();
 	private final JLabel statusLabel = new JLabel("Open your bank to scan.");
@@ -56,13 +54,14 @@ public class SkillBankPanel extends PluginPanel
 	private final JPanel homeList = new JPanel();
 	private List<SkillPage> pages = new ArrayList<>();
 
-	public SkillBankPanel(SkillBankOrganizerPlugin plugin, SkillCatalog catalog, ItemManager itemManager)
+	public SkillBankPanel(SkillBankOrganizerPlugin plugin, SkillCatalog catalog, ItemManager itemManager,
+		SpriteManager spriteManager)
 	{
 		super(false);
 		this.plugin = plugin;
 		this.catalog = catalog;
 		this.itemManager = itemManager;
-		this.skillIconManager = new SkillIconManager();
+		this.spriteManager = spriteManager;
 
 		setLayout(new BorderLayout());
 		setBackground(ColorScheme.DARK_GRAY_COLOR);
@@ -227,7 +226,7 @@ public class SkillBankPanel extends PluginPanel
 		row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
 		row.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-		JLabel icon = new JLabel(skillIcon(page.skill.rsSkill));
+		JLabel icon = skillIcon(page.skill.id);
 		row.add(icon, BorderLayout.WEST);
 
 		JLabel name = new JLabel(page.skill.name);
@@ -281,7 +280,7 @@ public class SkillBankPanel extends PluginPanel
 		back.addActionListener(e -> rebuildHome());
 		root.add(pad(back));
 
-		JLabel title = new JLabel(skillIcon(page.skill.rsSkill));
+		JLabel title = skillIcon(page.skill.id);
 		title.setText("  " + page.skill.name);
 		title.setFont(FontManager.getRunescapeBoldFont());
 		title.setForeground(GOLD);
@@ -444,22 +443,19 @@ public class SkillBankPanel extends PluginPanel
 		cards.repaint();
 	}
 
-	private ImageIcon skillIcon(String rsSkill)
+	/**
+	 * Builds the icon label for a page. The sprite is fetched off the Swing thread and applied when
+	 * the cache hands it over, so the panel never blocks waiting on the client thread.
+	 */
+	private JLabel skillIcon(String skillId)
 	{
-		if (rsSkill == null)
+		JLabel label = new JLabel();
+		int spriteId = SkillSprites.spriteFor(skillId);
+		if (spriteId != SkillSprites.NONE)
 		{
-			return new ImageIcon();
+			spriteManager.addSpriteTo(label, spriteId, 0);
 		}
-		try
-		{
-			Skill skill = Skill.valueOf(rsSkill);
-			BufferedImage image = skillIconManager.getSkillImage(skill, true);
-			return new ImageIcon(image);
-		}
-		catch (Exception ex)
-		{
-			return new ImageIcon();
-		}
+		return label;
 	}
 
 	private static String formatGp(long value)

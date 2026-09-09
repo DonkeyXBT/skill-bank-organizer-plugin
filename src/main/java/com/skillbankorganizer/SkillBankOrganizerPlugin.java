@@ -1,5 +1,6 @@
 package com.skillbankorganizer;
 
+import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.inject.Provides;
 import com.skillbankorganizer.data.BankStack;
@@ -29,6 +30,7 @@ import net.runelite.client.callback.ClientThread;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.game.ItemManager;
+import net.runelite.client.game.SpriteManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.ClientToolbar;
@@ -44,6 +46,8 @@ import net.runelite.client.util.ImageUtil;
 )
 public class SkillBankOrganizerPlugin extends Plugin
 {
+	private static final BufferedImage ICON =
+		ImageUtil.loadImageResource(SkillBankOrganizerPlugin.class, "/com/skillbankorganizer/icon.png");
 	private static final String BANK_TAGS_GROUP = "banktags";
 	private static final String ITEM_TAG_PREFIX = "item_";
 
@@ -71,25 +75,29 @@ public class SkillBankOrganizerPlugin extends Plugin
 	@Inject
 	private OverlayManager overlayManager;
 
+	@Inject
+	private SpriteManager spriteManager;
+
 	private SkillCatalog catalog;
 	private SkillBankPanel panel;
 	private NavigationButton navButton;
 	private SkillBankItemOverlay overlay;
-	private List<BankStack> lastScan = new ArrayList<>();
-	private boolean hasScan;
-	private String highlightedSkillId;
+	// Written on the client thread by the scan, read from the Swing thread by the panel.
+	private volatile List<BankStack> lastScan = ImmutableList.of();
+	private volatile boolean hasScan;
+	// Set from the panel on the Swing thread, read on the client thread while the overlay renders.
+	private volatile String highlightedSkillId;
 
 	@Override
 	protected void startUp()
 	{
 		catalog = SkillCatalog.load(gson);
-		panel = new SkillBankPanel(this, catalog, itemManager);
+		panel = new SkillBankPanel(this, catalog, itemManager, spriteManager);
 		overlay = new SkillBankItemOverlay(this);
 		overlayManager.add(overlay);
-		BufferedImage icon = ImageUtil.loadImageResource(getClass(), "/com/skillbankorganizer/icon.png");
 		navButton = NavigationButton.builder()
 			.tooltip("Skill Bank Organizer")
-			.icon(icon)
+			.icon(ICON)
 			.priority(5)
 			.panel(panel)
 			.build();
@@ -102,7 +110,7 @@ public class SkillBankOrganizerPlugin extends Plugin
 	{
 		overlayManager.remove(overlay);
 		clientToolbar.removeNavigation(navButton);
-		lastScan = new ArrayList<>();
+		lastScan = ImmutableList.of();
 		hasScan = false;
 		highlightedSkillId = null;
 		navButton = null;
@@ -353,7 +361,7 @@ public class SkillBankOrganizerPlugin extends Plugin
 			stacks.add(new BankStack(canonical, name, Math.max(qty, 0), price));
 		}
 
-		lastScan = stacks;
+		lastScan = ImmutableList.copyOf(stacks);
 		hasScan = true;
 		List<Organizer.SkillPage> pages = Organizer.build(catalog, stacks);
 		SwingUtilities.invokeLater(() ->
